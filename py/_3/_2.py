@@ -5,9 +5,8 @@ def parse(f):
     return (l.rstrip() for l in f)
 
 def group_into_triplets(xs):
-    for i in range(0, len(xs), 3):
-        yield xs[i:i+3]
-    
+    args = [xs] * 3
+    return zip(*args)
 
 def find_badge(group):
     group_sets = set((frozenset(rucksack) for rucksack in group))
