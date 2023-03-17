@@ -20,7 +20,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         exit_help()
     [day_number, part_number] = [try_int(s) for s in sys.argv[1:]]
-    input_path = f"inputs/{day_number}.txt"
+    input_path = f"../inputs/{day_number}.txt"
     module_name = f"_{day_number}._{part_number}"
     module = import_module(module_name)
     with open(input_path) as f:
