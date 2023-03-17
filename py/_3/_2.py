@@ -1,15 +1,14 @@
 from .priority import priority
-from itertools import islice
 
 def parse(f):
     return (l.rstrip() for l in f)
 
 def group_into_triplets(xs):
-    args = [xs] * 3
+    args = [iter(xs)] * 3
     return zip(*args)
 
 def find_badge(group):
-    group_sets = set((frozenset(rucksack) for rucksack in group))
+    group_sets = {frozenset(rucksack) for rucksack in group}
     smallest = min(group_sets)
     group_sets.remove(smallest)
 

@@ -8,11 +8,9 @@ encoding = {
 }
 
 def parse(f):
-    res = []
     for line in f:
-        [opponent_throw_enc, _, your_throw_enc] = line.rstrip()
-        res.append((encoding[opponent_throw_enc], encoding[your_throw_enc]))
-    return res
+        (opponent_throw_enc, _, your_throw_enc) = line.rstrip()
+        yield (encoding[opponent_throw_enc], encoding[your_throw_enc])
 
 # Maps throw type to points obtained from that throw
 throw_points = {

@@ -1,8 +1,9 @@
 from .priority import priority
 
 def parse(f):
-    stripped_f = (l.rstrip() for l in f)
-    return ((l[:len(l)//2], l[len(l)//2:]) for l in stripped_f)
+    for l in f:
+        l = l.rstrip()
+        yield (l[:len(l)//2], l[len(l)//2:])
 
 def find_duplicate(left, right):
     left_set = set(left)
