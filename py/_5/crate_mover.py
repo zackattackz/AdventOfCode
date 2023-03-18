@@ -8,8 +8,8 @@ class CrateMover:
 
     @classmethod
     def from_file(cls, f):
-        crate_rows = CrateMover.parse_crates(f)
-        return cls(CrateMover.stacks_from_crate_rows(crate_rows))
+        crate_rows = cls.parse_crates(f)
+        return cls(cls.stacks_from_crate_rows(crate_rows))
 
     def run_move(self, move):
         for _ in range(move.qty):
