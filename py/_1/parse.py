@@ -4,8 +4,6 @@ Parser for Day 1 Part 1 and 2.
 
 from itertools import groupby
 
-# path: path to file containing elf_inventories structure
-# returns: A list of lists of ints that is the parsed file
 def parse(file):
     """
     Parse the given input into a consumable output structure.
