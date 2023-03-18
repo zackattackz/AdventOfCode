@@ -17,7 +17,7 @@ def get_top_three_sum(elf_inventories):
     # Sort by caloric-value sum, then sum the top three
     return sum(sorted((sum(inv) for inv in elf_inventories), reverse=True)[:3])
 
-def answer(f):
+def answer(file):
     """
     The solution for this part.
 
@@ -26,4 +26,4 @@ def answer(f):
     :return: The problem solution.
     :rtype: int
     """
-    return get_top_three_sum(parse(f))
+    return get_top_three_sum(parse(file))
