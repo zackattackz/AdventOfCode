@@ -1,11 +1,12 @@
 """Defines Day 7 Part 1 answer"""
 
+from typing import List
 from .parse import parse
 from .sum_tree import SumTree
 
 LIMIT = 100000
 
-def answer(problem_input):
+def answer(problem_input: List[str]) -> int:
     """Get the answer for given problem input"""
     # Parse input into a file tree
     file_tree = parse(problem_input)
