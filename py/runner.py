@@ -72,8 +72,8 @@ def run():
     except ModuleNotFoundError:
         exit_invalid_part(day_number, part_number)
 
-    with open(input_path, encoding='ascii') as f:
-        print(module.answer(f))
+    with open(input_path, encoding='ascii') as file:
+        print(module.answer(file))
 
     sys.exit(0)
 
