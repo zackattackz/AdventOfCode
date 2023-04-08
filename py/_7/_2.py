@@ -18,7 +18,7 @@ def answer(problem_input):
     # Only directories (nodes with children).
     sum_tree_directories = (node for node in sum_tree_iter if len(node.children) > 0)
 
-    # Get all node vals that if deleted would satisy min space needed.
+    # Get all node vals that if deleted would satisfy min space needed.
     candidates = (node.val
                   for node in sum_tree_directories
                   if (MAX_SYS_SPACE - (root_sum_tree.val - node.val)) >= MIN_SPACE_NEEDED)
