@@ -2,8 +2,7 @@
 Defines the SumTree class.
 """
 
-from typing import Set
-from typing_extensions import Self
+from typing import Self, Set
 from .file_tree import FileTree
 
 class SumTreeLockedException(Exception):

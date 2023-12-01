@@ -1,6 +1,6 @@
 # Python Solutions
 
-This is a python package that contains all the solutions for AOC2022.
+This is a python package that contains all the solutions for the parts of AoC I've attempted.
 
 As general rules I try to:
 1. Use as much idomatic python as possible.
@@ -13,8 +13,8 @@ As general rules I try to:
 
 Each day's solutions are located in their respective sub-package:
 
-* Day 1 is in _1
-* Day 2 is in _2
+* Year 2022 Day 1 is in `_2022/_1`
+* Year 2022 Day 2 is in `_2022/_2`
 * etc...
 
 ### Sub-package layout
@@ -33,15 +33,15 @@ for example `_1/parse.py` contains a parser for the Day 1 Part 1 and 2 input.
 ## Runner
 This package also contains `runner.py`, which is a driver for running the solutions.
 
-To run the solution for a given Day/Part, run the following from the `py` directory (this package):
+To run the solution for a given Year/Day/Part, run the following from the `py` directory (this package):
 
 ```
-./runner DAY PART
+./runner YEAR DAY PART
 
-# example to run the day 2 part 1 solution...
-./runner 2 1
+# example to run the year 2022 day 2 part 1 solution...
+./runner 2022 2 1
 ```
 
-Where DAY and PART are numbers representing which day and which part you wish to run.
+Where YEAR, DAY, and PART are numbers representing which year, day, and which part you wish to run.
 
-Runner works simply by opening the input file for the given Day, and prints the result of `answer(file)` for the given Day/Part.
+Runner works simply by opening the input file for the given Year/Day, and prints the result of `answer(file)` for the given Year/Day/Part.

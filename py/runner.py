@@ -1,12 +1,13 @@
 """
-Driver for running a given Day/Part with the default input.
+Driver for running a given Year/Day/Part with the default input.
 """
 
 import sys
+import os
 from importlib import import_module
 
-HELP_TEXT = "Usage: runner [day_number] [part_number]"
-INVALID_PART_TEXT = "Invalid day and/or part given: {} {}"
+HELP_TEXT = "Usage: runner [year_number] [day_number] [part_number]"
+INVALID_PART_TEXT = "Invalid year, day, and/or part given: {} {} {}"
 
 def exit_with_msg_and_code(msg, code):
     """
@@ -26,16 +27,18 @@ def exit_help():
     """
     exit_with_msg_and_code(HELP_TEXT, 1)
 
-def exit_invalid_part(day, part):
+def exit_invalid_part(year, day, part):
     """
     Exits with INVALID_PART_TEXT formatted for a given day/part, and exit code 2.
 
+    :param year: The given year.
+    :type year: int
     :param day: The given day.
     :type day: int
     :param part: The given part.
     :type part: int
     """
-    exit_with_msg_and_code(INVALID_PART_TEXT.format(day, part), 2)
+    exit_with_msg_and_code(INVALID_PART_TEXT.format(year, day, part), 2)
 
 def try_int(val):
     """
@@ -51,26 +54,29 @@ def try_int(val):
 
 def run():
     """
-    Parse the day/part number from argv.
-    Load the module for the given day/part.
-    Run that module's answer func with the default input for that day.
+    Parse the year/day/part number from argv.
+    Load the module for the given part.
+    Run that module's answer func with the default input for that part.
     Print the answer.
     """
 
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         exit_help()
 
-    day_number = try_int(sys.argv[1])
-    part_number = try_int(sys.argv[2])
+    year_number = try_int(sys.argv[1])
+    day_number = try_int(sys.argv[2])
+    part_number = try_int(sys.argv[3])
 
+    script_path = os.path.dirname(os.path.abspath(__file__))
     # Use the default input for the given day
-    input_path = f"../inputs/{day_number}.txt"
+    input_path = f"{script_path}/../inputs/{year_number}/{day_number}.txt"
 
-    module_name = f"_{day_number}._{part_number}"
+    module_name = f"_{year_number}._{day_number}._{part_number}"
     try:
         module = import_module(module_name)
-    except ModuleNotFoundError:
-        exit_invalid_part(day_number, part_number)
+    except ModuleNotFoundError as e:
+        raise e
+        exit_invalid_part(year_number, day_number, part_number)
 
     with open(input_path, encoding='ascii') as file:
         print(module.answer(file))

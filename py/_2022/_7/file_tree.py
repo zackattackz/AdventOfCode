@@ -3,8 +3,7 @@ Defines FileTree and File dataclasses
 """
 
 from dataclasses import dataclass
-from typing import Set
-from typing_extensions import Self
+from typing import Self, Set
 
 
 @dataclass
