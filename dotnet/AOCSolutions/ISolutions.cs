@@ -3,4 +3,5 @@
 public interface ISolutions
 {
     public string Solve(int year, int day, int part, TextReader input);
+    public IYear GetYear(int year);
 }
