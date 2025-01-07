@@ -2,3 +2,6 @@
 __pycache__/
 .vscode/
 .venv/
+bin/
+obj/
+.idea/
