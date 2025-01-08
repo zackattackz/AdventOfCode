@@ -1,0 +1,6 @@
+#!/bin/sh
+
+SCRIPT_PATH=$(readlink -f "$0")
+SLN_PATH=$(dirname "$SCRIPT_PATH")
+dotnet run --project "$SLN_PATH/AOCRunner" $@
+
