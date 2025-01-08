@@ -9,6 +9,7 @@ public class Year : IYear
         return day switch
         {
             1 => new Day1.Day(),
+            2 => new Day2.Day(),
             _ => throw new InvalidDayException(day),
         };
     }
