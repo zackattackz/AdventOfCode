@@ -6,6 +6,7 @@ public class Part1 : IPart
 {
     public string GetSolution(TextReader input)
     {
-        throw new NotImplementedException();
+        var floor = Direction.ParseInput(input).Sum(Direction.GetFloorDelta);
+        return floor.ToString();
     }
 }
