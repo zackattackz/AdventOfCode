@@ -10,6 +10,7 @@ public class Year : IYear
         {
             1 => new Day1.Day(),
             2 => new Day2.Day(),
+            3 => new Day3.Day(),
             _ => throw new InvalidDayException(day),
         };
     }
